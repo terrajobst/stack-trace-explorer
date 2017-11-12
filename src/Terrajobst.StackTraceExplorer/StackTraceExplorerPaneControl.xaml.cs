@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.ComponentModelHost;
 using Microsoft.VisualStudio.LanguageServices;
 using Terrajobst.StackTraces;
 
-namespace Terrajobst.StackExplorer
+namespace Terrajobst.StackTraceExplorer
 {
     public partial class StackTraceExplorerPaneControl : UserControl
     {

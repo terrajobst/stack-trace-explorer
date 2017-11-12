@@ -16,8 +16,8 @@
     <ProjectGuid>{7BD4BA8A-B0E0-42DB-A035-C57C9430B447}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Terrajobst.StackExplorer</RootNamespace>
-    <AssemblyName>Terrajobst.StackExplorer</AssemblyName>
+    <RootNamespace>Terrajobst.StackTraceExplorer</RootNamespace>
+    <AssemblyName>Terrajobst.StackTraceExplorer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>

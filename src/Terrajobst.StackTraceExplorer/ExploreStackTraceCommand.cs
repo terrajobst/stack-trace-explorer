@@ -5,7 +5,7 @@ using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
-namespace Terrajobst.StackExplorer
+namespace Terrajobst.StackTraceExplorer
 {
     internal sealed class ExploreStackTraceCommand
     {

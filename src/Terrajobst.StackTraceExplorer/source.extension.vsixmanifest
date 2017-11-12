@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="Terrajobst.StackExplorer.4995ed73-eaa4-4c4c-98fc-1e90df4aea6f" Version="|%CurrentProject%;GetBuildVersion|" Language="en-US" Publisher="Immo Landwerth" />
+        <Identity Id="Terrajobst.StackTraceExplorer.4995ed73-eaa4-4c4c-98fc-1e90df4aea6f" Version="|%CurrentProject%;GetBuildVersion|" Language="en-US" Publisher="Immo Landwerth" />
         <DisplayName>Stack Trace Explorer</DisplayName>
         <Description xml:space="preserve">Exploring stack traces for the 21st century.</Description>
         <MoreInfo>https://github.com/terrajobst/stack-trace-explorer</MoreInfo>

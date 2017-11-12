@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
@@ -15,7 +14,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TextManager.Interop;
 using Terrajobst.StackTraces;
 
-namespace Terrajobst.StackExplorer
+namespace Terrajobst.StackTraceExplorer
 {
     internal sealed class VisualStudioStackTraceWriter : CompilationStackTraceWriter
     {
