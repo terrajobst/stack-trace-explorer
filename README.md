@@ -7,6 +7,10 @@ by turning types, methods, and paths into hyper links:
 
 ![](docs/screen.gif)
 
+## Download
+
+You can find the latest version in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ImmoLandwerthMSFT.StackTraceExplorer).
+
 ## Usage
 
 Using it is super simple:
