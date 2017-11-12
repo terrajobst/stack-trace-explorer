@@ -42,8 +42,7 @@ namespace Terrajobst.StackExplorer
 
             var run = new Run(text)
             {
-                ToolTip = symbol.ToString(),
-                Foreground = isMethod ? Brushes.DarkCyan : Brushes.DarkBlue,
+                ToolTip = symbol.ToString()
             };
 
             if (location.IsInSource)
@@ -65,8 +64,7 @@ namespace Terrajobst.StackExplorer
 
             var run = new Run(text)
             {
-                ToolTip = path,
-                Foreground = Brushes.Blue
+                ToolTip = path
             };
 
             RegisterNavigationCommand(run, path, lineNumber - 1, 0);
