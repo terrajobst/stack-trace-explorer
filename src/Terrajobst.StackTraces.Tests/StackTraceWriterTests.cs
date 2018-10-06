@@ -1,11 +1,13 @@
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using System;
 using System.Collections.Immutable;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
+using System.Threading;
 using Terrajobst.StackTraces.Tests.Helpers;
 using Xunit;
 
@@ -15,6 +17,8 @@ namespace Terrajobst.StackTraces.Tests
     {
         private static void AssertIsMatch(string sourceWithMarkers, string expectedStackTrace)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
             var annotatedSource = AnnotatedText.Parse(sourceWithMarkers);
 
             var syntaxTree = CSharpSyntaxTree.ParseText(annotatedSource.Text);

@@ -9,9 +9,9 @@ namespace Terrajobst.StackTraces
         {
             var lastPosition = 0;
 
-            foreach (var lineExtent in GetLineExtents(text))
+            foreach (var (start, length) in GetLineExtents(text))
             {
-                var line = text.Substring(lineExtent.start, lineExtent.length);
+                var line = text.Substring(start, length);
                 var frameMatch = Regex.Match(line, @"^.*?(?<method>([^. ])+\..*\([^.]*\)).*?((?<path>[a-zA-Z]:.*?):.*?(?<line>[0-9]+))?$");
 
                 if (frameMatch.Success)
@@ -20,15 +20,15 @@ namespace Terrajobst.StackTraces
                     var pathGroup = frameMatch.Groups["path"];
                     var lineNumberGroup = frameMatch.Groups["line"];
 
-                    var methodNameStart = lineExtent.start + methodNameGroup.Index;
+                    var methodNameStart = start + methodNameGroup.Index;
                     var methodNameLength = methodNameGroup.Length;
                     var methodName = text.Substring(methodNameStart, methodNameLength);
 
-                    var pathStart = lineExtent.start + pathGroup.Index;
+                    var pathStart = start + pathGroup.Index;
                     var pathLength = pathGroup.Length;
                     var path = text.Substring(pathStart, pathLength);
 
-                    var lineNumberStart = lineExtent.start + lineNumberGroup.Index;
+                    var lineNumberStart = start + lineNumberGroup.Index;
                     var lineNumberLength = lineNumberGroup.Length;
                     var hasLineNumber = lineNumberLength > 0;
                     var lineNumberText = text.Substring(lineNumberStart, lineNumberLength);
@@ -45,7 +45,7 @@ namespace Terrajobst.StackTraces
                     if (path.Length > 0)
                         writer.WritePath(path, lineNumber);
 
-                    lastPosition = lineExtent.start + lineExtent.length;
+                    lastPosition = start + length;
                 }
             }
 
@@ -59,36 +59,16 @@ namespace Terrajobst.StackTraces
 
             while (position < text.Length)
             {
-                var c = text[position];
-                var l = position == text.Length - 1 ? '\0' : text[position + 1];
-
-                var end = position;
-                var length = end - start;
-                var returnLine = false;
-
-                if (c == '\r')
+                if (text.IndexOf("\r\n", position) == -1)
                 {
-                    if (l == '\n')
-                        position++;
-
-                    returnLine = true;
-                }
-                else if (c == '\n')
-                {
-                    returnLine = true;
+                    break;
                 }
 
-                position++;
+                position = text.IndexOf("\r\n", position) + 2;
 
-                if (returnLine)
-                {
-                    yield return (start, length);
-                    start = position;
-                }
+                yield return (start, position - start + 2);
+                start = position;
             }
-
-            if (start < position)
-                yield return (start, text.Length - start);
         }
 
         private void WriteText(string text, ref int lastPosition, int position)
